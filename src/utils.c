@@ -8,10 +8,12 @@ void draw_map(int map[MAP_X][MAP_Y]) {
     for (int j = 0; j < MAP_Y; j++) {
 
       if (COLOR)
-        printf("\033[%dm%3c\033[0m", 30 + NO_SEA + (map[i][j] % 8), CHARSET[map[i][j]]);
+        printf("\033[%dm%3c\033[0m", 30 + NO_SEA + (map[i][j] % 8),
+               CHARSET[map[i][j] % (int)CHARSET_LEN]);
       else
         printf("%3c", CHARSET[map[i][j]]);
     }
+
     printf("\n");
   }
 }
