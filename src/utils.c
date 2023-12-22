@@ -3,6 +3,9 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+#define STB_IMAGE_WRITE_IMPLEMENTATION
+#include "../include/stb_image_write.h"
+
 void init_map(int map[MAP_X][MAP_Y]) {
 
   for (int i = 0; i < MAP_X; i++)
@@ -35,9 +38,9 @@ void draw_png(int map[MAP_X][MAP_Y]) {
   int index = 0;
   for (int i = 0; i < MAP_X; i++) {
     for (int j = 0; j < MAP_Y; j++) {
-      data[index++] = map[i][j] % 256; // Red
-      data[index++] = map[i][j] % 256; // Green
-      data[index++] = map[i][j] % 256; // Blue
+      data[index++] = map[i][j] % 256 + BRIGHTNESS + RED;
+      data[index++] = map[i][j] % 256 + BRIGHTNESS + GREEN;
+      data[index++] = map[i][j] % 256 + BRIGHTNESS + BLUE;
     }
   }
 

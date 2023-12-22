@@ -2,32 +2,38 @@
 #define SETTINGS_H
 
 // map
-#define MAP_X 50
-#define MAP_Y 50
+#define MAP_X 1024
+#define MAP_Y 768
 
 // country (size is border)
-#define COUNTRY_SIZE 20
-#define COUNTRY_NUM 20
+#define COUNTRY_SIZE 100
+#define COUNTRY_NUM 40
 #define COUNTRY_TRIES 100
 
 // virus
-#define VIRUS_NUM 20
-#define VIRUS_SIZE 20
+#define VIRUS_NUM 40
+#define VIRUS_SIZE 200
 #define VIRUS_TRIES 1000
 
 // walker
-#define WALKER_NUM 5
-#define WALKER_SIZE 50
+#define WALKER_NUM 20
+#define WALKER_SIZE 100
 #define WALKER_TRIES 100
 
 // gaming
 #define GAMING 0
 #define TIMEOUT 10
 
-// display
+// display (ascii)
 #define COLOR 1
 #define NO_SEA 0
 #define CHARSET "$@%&#*/|(){}[]?-_+~<>!;:,^`'."
 #define CHARSET_LEN sizeof(CHARSET)
+
+// display (png)
+#define RED 50
+#define GREEN 0
+#define BLUE 0
+#define BRIGHTNESS 50
 
 #endif // SETTINGS_H

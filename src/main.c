@@ -18,11 +18,12 @@ int main(void) {
 
     init_map(map);
 
-    // run_country(map);
-    // run_virus(map);
+    run_country(map);
+    run_virus(map);
     run_walker(map);
 
     draw_map(map);
+    draw_png(map);
   }
 
   return EXIT_SUCCESS;
