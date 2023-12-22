@@ -3,10 +3,6 @@
 #include <stdlib.h>
 
 void run_country(int map[MAP_X][MAP_Y]) {
-  for (int i = 0; i < MAP_X; i++)
-    for (int j = 0; j < MAP_Y; j++)
-      map[i][j] = 0;
-
   for (int i = 0; i < COUNTRY_NUM; i++) {
     coord size = {2 + rand() % COUNTRY_SIZE, 2 + rand() % COUNTRY_SIZE};
     coord free_spot = find_free_spot(map, size);

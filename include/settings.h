@@ -16,8 +16,8 @@
 #define VIRUS_TRIES 1000
 
 // walker
-#define WALKER_NUM 20
-#define WALKER_SIZE 20
+#define WALKER_NUM 5
+#define WALKER_SIZE 50
 #define WALKER_TRIES 100
 
 // gaming
