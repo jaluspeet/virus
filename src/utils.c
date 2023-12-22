@@ -41,7 +41,7 @@ coord pop(nodo **testa) {
   return ret;
 }
 
-void show_map(int map[MAP_X][MAP_Y], coord target) {
+void show_map(int map[MAP_X][MAP_Y], coord target, char charset[CHARSET_LEN]) {
 
   for (int i = TIMEOUT; i > 0; i--) {
 
@@ -50,7 +50,12 @@ void show_map(int map[MAP_X][MAP_Y], coord target) {
 
     for (int i = 0; i < MAP_X; i++) {
       for (int j = 0; j < MAP_Y; j++) {
-        printf("\033[%dm%3d\033[0m", 31 + (map[i][j] % 8), map[i][j]);
+
+        if (COLOR)
+          printf("\033[%dm%3c\033[0m", 31 + (map[i][j] % 8),
+                 charset[map[i][j]]);
+        else
+          printf("%3c", charset[map[i][j]]);
       }
       printf("\n");
     }

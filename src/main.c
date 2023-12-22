@@ -14,6 +14,7 @@ int main(void) {
 
   int map[MAP_X][MAP_Y];
   int score = 0;
+  char charset[CHARSET_LEN] = CHARSET;
 
   while (1) {
     init_map_country(map);
@@ -21,13 +22,14 @@ int main(void) {
     coord target = {rand() % MAP_X, rand() % MAP_Y};
 
     system("clear");
-    show_map(map, target);
+    show_map(map, target, charset);
 
-    int guess;
     printf("\n[SCORE: %d] Where was the coordinate? ", score);
-    scanf("%d", &guess);
+    char guess = getchar();
+    getchar();
 
-    if (map[target.x][target.y] == guess)
+    // TODO: il check non va e non ho voglia di capire come mai ~ spita
+    if (charset[map[target.x][target.y]] == guess)
       score++;
     else {
       if (retry(score))

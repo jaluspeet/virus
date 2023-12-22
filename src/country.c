@@ -9,7 +9,7 @@ void init_map_country(int map[MAP_X][MAP_Y]) {
       map[i][j] = 0;
 
   for (int i = 0; i < COUNTRIES; i++) {
-    coord size = {2 + rand() % COUNTRY_MAX_X, 2 + rand() % COUNTRY_MAX_Y};
+    coord size = {2 + rand() % AREA_COUNTRY, 2 + rand() % AREA_COUNTRY};
     coord free_spot = find_free_spot(map, size);
 
     if (free_spot.x < 0 || free_spot.y < 0)
