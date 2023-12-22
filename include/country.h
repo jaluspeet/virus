@@ -5,7 +5,7 @@
 #include "types.h"
 
 void init_map_country(int map[MAP_X][MAP_Y]);
-coord find_free_spot(int map[MAP_X][MAP_Y], coord size);
 void country(int map[MAP_X][MAP_Y], coord start, coord offset, int flag);
+coord find_free_spot(int map[MAP_X][MAP_Y], coord size);
 
 #endif // COUNTRY_H

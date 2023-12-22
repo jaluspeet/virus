@@ -41,26 +41,16 @@ coord pop(nodo **testa) {
   return ret;
 }
 
-void show_map(int map[MAP_X][MAP_Y], coord target, char charset[CHARSET_LEN]) {
+void draw_map(int map[MAP_X][MAP_Y]) {
 
-  for (int i = TIMEOUT; i > 0; i--) {
+  for (int i = 0; i < MAP_X; i++) {
+    for (int j = 0; j < MAP_Y; j++) {
 
-    printf("\nFIND: %dX %dY (MAX: %dX %dY)", target.x, target.y, MAP_X, MAP_Y);
-    printf("\n%d seconds left\n\n", i);
-
-    for (int i = 0; i < MAP_X; i++) {
-      for (int j = 0; j < MAP_Y; j++) {
-
-        if (COLOR)
-          printf("\033[%dm%3c\033[0m", 31 + (map[i][j] % 8),
-                 charset[map[i][j]]);
-        else
-          printf("%3c", charset[map[i][j]]);
-      }
-      printf("\n");
+      if (COLOR)
+        printf("\033[%dm%3c\033[0m", 31 + (map[i][j] % 8), CHARSET[map[i][j]]);
+      else
+        printf("%3c", CHARSET[map[i][j]]);
     }
-
-    sleep(1);
-    system("clear");
+    printf("\n");
   }
 }

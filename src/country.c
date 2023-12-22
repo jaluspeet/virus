@@ -47,23 +47,3 @@ void country(int map[MAP_X][MAP_Y], coord start, coord offset, int flag) {
     for (int j = start.y; j < start.y + offset.y; j++)
       map[i][j] = flag;
 }
-
-int retry(int score) {
-  system("clear");
-  printf("Your score was: %d. Retry? (y/n):", score);
-
-  getchar();
-
-  while (1) {
-    switch (getchar()) {
-    case 'n':
-    case 'N':
-      return 0;
-    case 'y':
-    case 'Y':
-      return 1;
-    default:
-      printf("\nThat isn't an option, sorry. Retry? (y/n): ");
-    }
-  }
-}

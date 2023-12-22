@@ -16,6 +16,7 @@
 #define VIRUS_TRIES 1000
 
 // other
+#define GAMING 0
 #define COLOR 1
 #define TIMEOUT 10
 #define CHARSET "$@%&#*/|(){}[]?-_+~<>!;:,^`'."
