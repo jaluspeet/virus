@@ -16,9 +16,11 @@ int main(void) {
   else {
     int map[MAP_X][MAP_Y];
 
-    run_country(map);
-    run_virus(map);
-    // _run_walker(map);
+    init_map(map);
+
+    // run_country(map);
+    // run_virus(map);
+    run_walker(map);
 
     draw_map(map);
   }
