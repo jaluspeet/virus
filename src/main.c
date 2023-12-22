@@ -1,8 +1,8 @@
-#include "include/country.h"
-#include "include/settings.h"
-#include "include/types.h"
-#include "include/utils.h"
-#include "include/virus.h"
+#include "../include/country.h"
+#include "../include/settings.h"
+#include "../include/types.h"
+#include "../include/utils.h"
+#include "../include/virus.h"
 
 #include <stdio.h>
 #include <stdlib.h>

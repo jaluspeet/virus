@@ -2,15 +2,16 @@ CC = clang
 CFLAGS = -Iinclude -Wall
 DEPS = $(wildcard include/*.h)
 SRC = $(wildcard src/*.c)
-OBJ = $(SRC:.c=.o) main.o
+OBJ = $(patsubst src/%.c,build/%.o,$(SRC))
+EXECUTABLE = build/main
 
-%.o: %.c $(DEPS)
+build/%.o: src/%.c $(DEPS)
 	$(CC) -c -o $@ $< $(CFLAGS)
 
-main: $(OBJ)
+$(EXECUTABLE): $(OBJ)
 	$(CC) -o $@ $^ $(CFLAGS)
 
 .PHONY: clean
 
 clean:
-	rm -f $(OBJ) main
+	rm -f $(OBJ) $(EXECUTABLE)
