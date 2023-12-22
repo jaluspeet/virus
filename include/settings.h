@@ -18,7 +18,7 @@
 // other
 #define COLOR 1
 #define TIMEOUT 10
-#define CHARSET "$@%&#*/|(){}[]?-_+~<>!;:,\"^`'."
+#define CHARSET "$@%&#*/|(){}[]?-_+~<>!;:,^`'."
 #define CHARSET_LEN sizeof(CHARSET)
 
 #endif // SETTINGS_H
