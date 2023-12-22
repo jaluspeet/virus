@@ -43,9 +43,12 @@ void draw_png(int map[MAP_X][MAP_Y]) {
   int index = 0;
   for (int i = 0; i < MAP_X; i++) {
     for (int j = 0; j < MAP_Y; j++) {
-      data[index++] = map[i][j] % 256 + BRIGHTNESS + RED;
-      data[index++] = map[i][j] % 256 + BRIGHTNESS + GREEN;
-      data[index++] = map[i][j] % 256 + BRIGHTNESS + BLUE;
+
+      srand(map[i][j]);
+
+      data[index++] = rand() % 256 + BRIGHTNESS + RED;
+      data[index++] = rand() % 256 + BRIGHTNESS + GREEN;
+      data[index++] = rand() % 256 + BRIGHTNESS + BLUE;
     }
   }
 
