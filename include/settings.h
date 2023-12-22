@@ -6,18 +6,18 @@
 #define MAP_Y 768
 
 // country (size is border)
-#define COUNTRY_SIZE 100
+#define COUNTRY_SIZE 200
 #define COUNTRY_NUM 40
 #define COUNTRY_TRIES 100
 
 // virus
 #define VIRUS_NUM 40
-#define VIRUS_SIZE 200
+#define VIRUS_SIZE 1000
 #define VIRUS_TRIES 1000
 
 // walker
-#define WALKER_NUM 20
-#define WALKER_SIZE 100
+#define WALKER_NUM 200
+#define WALKER_SIZE 1000
 #define WALKER_TRIES 100
 
 // gaming
@@ -33,7 +33,7 @@
 // display (png)
 #define RED 50
 #define GREEN 0
-#define BLUE 0
+#define BLUE 40
 #define BRIGHTNESS 50
 
 #endif // SETTINGS_H
