@@ -45,7 +45,7 @@ void show_map(int map[MAP_X][MAP_Y], coord target, char charset[CHARSET_LEN]) {
 
   for (int i = TIMEOUT; i > 0; i--) {
 
-    printf("\nFIND: %dX %dY", target.x, target.y);
+    printf("\nFIND: %dX %dY (MAX: %dX %dY)", target.x, target.y, MAP_X, MAP_Y);
     printf("\n%d seconds left\n\n", i);
 
     for (int i = 0; i < MAP_X; i++) {
