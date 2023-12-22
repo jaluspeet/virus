@@ -12,9 +12,8 @@ $(EXECUTABLE): $(OBJ)
 	$(CC) -o $@ $^ $(CFLAGS)
 
 .PHONY: clean
-
 clean:
 	rm -f $(OBJ) $(EXECUTABLE)
 
-run:
-	./$(EXECUTABLE)
+run: $(EXECUTABLE)
+	./$<
