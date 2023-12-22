@@ -1,6 +1,7 @@
 #include "../include/utils.h"
 
 #include <stdio.h>
+#include <stdlib.h>
 
 void draw_map(int map[MAP_X][MAP_Y]) {
 
@@ -16,4 +17,24 @@ void draw_map(int map[MAP_X][MAP_Y]) {
 
     printf("\n");
   }
+}
+
+void draw_png(int map[MAP_X][MAP_Y]) {
+
+  int channels = 3; // RGB
+
+  unsigned char *data = malloc(MAP_X * MAP_Y * channels);
+
+  int index = 0;
+  for (int i = 0; i < MAP_X; i++) {
+    for (int j = 0; j < MAP_Y; j++) {
+      data[index++] = map[i][j] % 256; // Red
+      data[index++] = map[i][j] % 256; // Green
+      data[index++] = map[i][j] % 256; // Blue
+    }
+  }
+
+  stbi_write_png("map.png", MAP_X, MAP_Y, channels, data, MAP_X * channels);
+
+  free(data);
 }
