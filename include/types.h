@@ -6,9 +6,4 @@ typedef struct coord {
   int y;
 } coord;
 
-typedef struct nodo {
-  coord cella;
-  struct nodo *next;
-} nodo;
-
 #endif // TYPES_H

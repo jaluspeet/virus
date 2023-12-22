@@ -2,8 +2,8 @@
 
 #include <stdlib.h>
 
-void init_map_virus(int map[MAP_X][MAP_Y]) {
-  for (int i = 0; i < VIRUSES; i++) {
+void run_virus(int map[MAP_X][MAP_Y]) {
+  for (int i = 0; i < VIRUS_NUM; i++) {
     int tries = 0;
     coord start;
 
@@ -16,42 +16,42 @@ void init_map_virus(int map[MAP_X][MAP_Y]) {
 
     } while (map[start.x][start.y] != 0);
 
-    int area = AREA_VIRUS + rand() % AREA_VIRUS;
-    nodo *coda = NULL;
+    int area = VIRUS_SIZE + rand() % VIRUS_SIZE;
+    node *tail = NULL;
 
-    push(&coda, start);
-    virus(map, &coda, area, i + 1);
+    push_lifo(&tail, start);
+    virus(map, &tail, area, i + 1);
   }
 }
 
-void virus(int map[MAP_X][MAP_Y], nodo **coda, int area, int genoma) {
+void virus(int map[MAP_X][MAP_Y], node **tail, int area, int flag) {
 
   coord start;
 
   do {
-    start = pop(coda);
+    start = pop_lifo(tail);
     if (start.x == -1 || start.y == -1 || area == 0)
       return;
   } while (map[start.x][start.y] != 0);
 
-  map[start.x][start.y] = genoma;
+  map[start.x][start.y] = flag;
 
   if (start.x + 1 < MAP_X && map[start.x + 1][start.y] == 0) {
-    coord destra = {start.x + 1, start.y};
-    push(coda, destra);
+    coord right = {start.x + 1, start.y};
+    push_lifo(tail, right);
   }
   if (start.x - 1 >= 0 && map[start.x - 1][start.y] == 0) {
-    coord sinistra = {start.x - 1, start.y};
-    push(coda, sinistra);
+    coord left = {start.x - 1, start.y};
+    push_lifo(tail, left);
   }
   if (start.y + 1 < MAP_Y && map[start.x][start.y + 1] == 0) {
-    coord giu = {start.x, start.y + 1};
-    push(coda, giu);
+    coord down = {start.x, start.y + 1};
+    push_lifo(tail, down);
   }
   if (start.y - 1 >= 0 && map[start.x][start.y - 1] == 0) {
-    coord su = {start.x, start.y - 1};
-    push(coda, su);
+    coord up = {start.x, start.y - 1};
+    push_lifo(tail, up);
   }
 
-  virus(map, coda, area - 1, genoma);
+  virus(map, tail, area - 1, flag);
 }

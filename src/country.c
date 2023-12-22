@@ -1,15 +1,14 @@
 #include "../include/country.h"
 
-#include <stdio.h>
 #include <stdlib.h>
 
-void init_map_country(int map[MAP_X][MAP_Y]) {
+void run_country(int map[MAP_X][MAP_Y]) {
   for (int i = 0; i < MAP_X; i++)
     for (int j = 0; j < MAP_Y; j++)
       map[i][j] = 0;
 
-  for (int i = 0; i < COUNTRIES; i++) {
-    coord size = {2 + rand() % AREA_COUNTRY, 2 + rand() % AREA_COUNTRY};
+  for (int i = 0; i < COUNTRY_NUM; i++) {
+    coord size = {2 + rand() % COUNTRY_SIZE, 2 + rand() % COUNTRY_SIZE};
     coord free_spot = find_free_spot(map, size);
 
     if (free_spot.x < 0 || free_spot.y < 0)
@@ -17,6 +16,12 @@ void init_map_country(int map[MAP_X][MAP_Y]) {
     else
       country(map, free_spot, size, i);
   }
+}
+
+void country(int map[MAP_X][MAP_Y], coord start, coord offset, int flag) {
+  for (int i = start.x; i < start.x + offset.x; i++)
+    for (int j = start.y; j < start.y + offset.y; j++)
+      map[i][j] = flag;
 }
 
 coord find_free_spot(int map[MAP_X][MAP_Y], coord size) {
@@ -40,10 +45,4 @@ coord find_free_spot(int map[MAP_X][MAP_Y], coord size) {
   }
 
   return not_found;
-}
-
-void country(int map[MAP_X][MAP_Y], coord start, coord offset, int flag) {
-  for (int i = start.x; i < start.x + offset.x; i++)
-    for (int j = start.y; j < start.y + offset.y; j++)
-      map[i][j] = flag;
 }

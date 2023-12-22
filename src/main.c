@@ -2,6 +2,7 @@
 #include "../include/gaming.h"
 #include "../include/settings.h"
 #include "../include/virus.h"
+#include "../include/walker.h"
 
 #include <stdlib.h>
 #include <time.h>
@@ -15,8 +16,9 @@ int main(void) {
   else {
     int map[MAP_X][MAP_Y];
 
-    init_map_country(map);
-    init_map_virus(map);
+    run_country(map);
+    run_virus(map);
+    // _run_walker(map);
 
     draw_map(map);
   }

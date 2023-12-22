@@ -10,8 +10,8 @@ void gaming() {
   int score = 0;
 
   while (1) {
-    init_map_country(map);
-    init_map_virus(map);
+    run_country(map);
+    run_virus(map);
     coord target = {rand() % MAP_X, rand() % MAP_Y};
 
     system("clear");
