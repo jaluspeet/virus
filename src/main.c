@@ -24,7 +24,7 @@ int main(void) {
     system("clear");
     show_map(map, target, charset);
 
-    printf("\n[SCORE: %d] Where was the coordinate? ", score);
+    printf("\n[SCORE: %d] Where was the coordinate? (insert symbol)", score);
     char guess = getchar();
     getchar();
 
