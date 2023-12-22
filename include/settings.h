@@ -26,6 +26,7 @@
 
 // display
 #define COLOR 1
+#define NO_SEA 0
 #define CHARSET "$@%&#*/|(){}[]?-_+~<>!;:,^`'."
 #define CHARSET_LEN sizeof(CHARSET)
 
