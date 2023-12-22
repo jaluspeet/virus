@@ -25,6 +25,8 @@ int main(void) {
     show_map(map, target, charset);
 
     printf("\n[SCORE: %d] Where was the coordinate? (insert symbol): ", score);
+
+    // TODO: i getchar qui e in show_map() fanno i birichini ~ spita
     char guess = getchar();
     getchar();
 
