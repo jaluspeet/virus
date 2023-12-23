@@ -1,6 +1,5 @@
 #include "../include/country.h"
-#include "../include/gaming.h"
-#include "../include/settings.h"
+#include "../include/draw.h"
 #include "../include/virus.h"
 #include "../include/walker.h"
 
@@ -11,20 +10,15 @@ int main(void) {
 
   srand(time(NULL));
 
-  if (GAMING)
-    gaming();
-  else {
-    int map[MAP_X][MAP_Y];
+  int map[MAP_X][MAP_Y];
 
-    init_map(map);
+  init_map(map);
 
-    run_country(map);
-    run_virus(map);
-    run_walker(map);
+  run_country(map);
+  run_virus(map);
+  run_walker(map);
 
-    draw_map(map);
-    draw_png(map);
-  }
+  DRAW_MAP;
 
   return EXIT_SUCCESS;
 }

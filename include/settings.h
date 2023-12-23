@@ -20,20 +20,19 @@
 #define WALKER_SIZE 1000
 #define WALKER_TRIES 100
 
-// gaming
-#define GAMING 0
-#define TIMEOUT 10
+// draw
+#define DRAW_MAP 2 // 0: no, 1: ascii, 2+: png
 
-// display (ascii)
+// draw (ascii)
 #define COLOR 1
 #define NO_SEA 0
 #define CHARSET "$@%&#*/|(){}[]?-_+~<>!;:,^`'."
 #define CHARSET_LEN sizeof(CHARSET)
 
-// display (png)
-#define RED 10
-#define GREEN 100
-#define BLUE 60
+// draw (png)
+#define RED 0
+#define GREEN 0
+#define BLUE 0
 #define BRIGHTNESS 50
 
 #endif // SETTINGS_H

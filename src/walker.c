@@ -18,8 +18,7 @@ void walker(int map[MAP_X][MAP_Y], int flag) {
       if (position.x < MAP_X - 1 && map[position.x + 1][position.y] == 0) {
         position.x++;
         map[position.x][position.y] = flag;
-      }
-      else {
+      } else {
         direction = rand() % 4;
         tries++;
       }
@@ -28,8 +27,7 @@ void walker(int map[MAP_X][MAP_Y], int flag) {
       if (position.x > 0 && map[position.x - 1][position.y] == 0) {
         position.x--;
         map[position.x][position.y] = flag;
-      }
-      else {
+      } else {
         direction = rand() % 4;
         tries++;
       }
@@ -38,8 +36,7 @@ void walker(int map[MAP_X][MAP_Y], int flag) {
       if (position.y < MAP_Y - 1 && map[position.x][position.y + 1] == 0) {
         position.y++;
         map[position.x][position.y] = flag;
-      }
-      else {
+      } else {
         direction = rand() % 4;
         tries++;
       }
@@ -48,8 +45,7 @@ void walker(int map[MAP_X][MAP_Y], int flag) {
       if (position.y > 0 && map[position.x][position.y - 1] == 0) {
         position.y--;
         map[position.x][position.y] = flag;
-      }
-      else {
+      } else {
         direction = rand() % 4;
         tries++;
       }
