@@ -14,6 +14,7 @@ EXECUTABLE = $(BUILD_DIR)/main
 
 $(BUILD_DIR)/%.o: $(SRC_DIR)/%.c $(DEPS)
 	@mkdir -p $(@D)
+	@mkdir -p $(OUT_DIR)
 	$(CC) -c -o $@ $< $(CFLAGS)
 
 $(EXECUTABLE): $(OBJ)
@@ -24,5 +25,4 @@ clean:
 	rm -rf $(BUILD_DIR) $(OUT_DIR)
 
 run: $(EXECUTABLE)
-	@mkdir -p $(OUT_DIR)
 	./$<
