@@ -38,3 +38,33 @@ coord pop_lifo(node **head) {
 
   return ret;
 }
+
+void push_fifo(node **tail, coord position) {
+  node *new = (node *)malloc(sizeof(node));
+  new->position = position;
+  new->next = NULL;
+
+  if (!(*tail)) {
+    *tail = new;
+  } else {
+    (*tail)->next = new;
+    *tail = new;
+  }
+}
+
+coord pop_fifo(node **head) {
+  coord ret;
+
+  if (!(*head)) {
+    ret.x = -1;
+    ret.y = -1;
+    return ret;
+  } else {
+    node *first = (*head);
+    ret = first->position;
+    *head = first->next;
+    free(first);
+  }
+
+  return ret;
+}

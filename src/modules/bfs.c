@@ -1,8 +1,8 @@
-#include "modules/virus.h"
+#include "modules/bfs.h"
 
 #include <stdlib.h>
 
-void virus(int map[MAP_X][MAP_Y], node **tail, int area, int flag) {
+void bfs(int map[MAP_X][MAP_Y], node **tail, int area, int flag) {
 
   coord start;
 
@@ -31,11 +31,11 @@ void virus(int map[MAP_X][MAP_Y], node **tail, int area, int flag) {
     push_lifo(tail, up);
   }
 
-  virus(map, tail, area - 1, flag);
+  bfs(map, tail, area - 1, flag);
 }
 
-void run_virus(int map[MAP_X][MAP_Y]) {
-  for (int i = 0; i < VIRUS_NUM; i++) {
+void run_bfs(int map[MAP_X][MAP_Y]) {
+  for (int i = 0; i < BFS_NUM; i++) {
     int tries = 0;
     coord start;
 
@@ -43,15 +43,15 @@ void run_virus(int map[MAP_X][MAP_Y]) {
       start.x = rand() % MAP_X;
       start.y = rand() % MAP_Y;
 
-      if (tries++ > VIRUS_TRIES)
+      if (tries++ > BFS_TRIES)
         return;
 
     } while (map[start.x][start.y] != 0);
 
-    int area = VIRUS_SIZE + rand() % VIRUS_SIZE;
+    int area = BFS_SIZE + rand() % BFS_SIZE;
     node *tail = NULL;
 
     push_lifo(&tail, start);
-    virus(map, &tail, area, i + 1);
+    bfs(map, &tail, area, i + 1);
   }
 }

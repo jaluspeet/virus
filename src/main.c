@@ -7,8 +7,9 @@
 #include "stuff/utils.h"
 
 // modules
+#include "modules/bfs.h"
 #include "modules/country.h"
-#include "modules/virus.h"
+#include "modules/dfs.h"
 #include "modules/walker.h"
 
 // std library
@@ -32,11 +33,12 @@ int main(void) {
   // TODO: registrare automaticamente tutti i moduli disponibili, dopo non sarà
   // più necessario includere tutti gli header dei moduli nel main
   register_module(run_country, "country");
-  register_module(run_virus, "virus");
+  register_module(run_bfs, "bfs");
+  register_module(run_dfs, "dfs");
   register_module(run_walker, "walker");
 
   // Buongiorno!
-  printf("Welcome to the virus:\n\n");
+  printf("Welcome to the bfs:\n\n");
 
   // elenca i moduli disponibili
   // NOTE: modules_size non considera il fatto che sia indicizzato a 0, è il

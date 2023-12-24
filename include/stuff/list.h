@@ -14,7 +14,7 @@ void push_lifo(node **head, coord position);
 coord pop_lifo(node **head);
 
 // fifo
-void _push_fifo(node **head, coord position);
-coord _pop_fifo(node **head);
+void push_fifo(node **head, coord position);
+coord pop_fifo(node **head);
 
 #endif // LIST_H
