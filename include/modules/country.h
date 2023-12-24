@@ -5,7 +5,7 @@
 #include "types.h"
 
 #define COUNTRY_SIZE 200
-#define COUNTRY_NUM 40
+#define COUNTRY_NUM 20
 #define COUNTRY_TRIES 100
 
 void run_country(int map[MAP_X][MAP_Y]);

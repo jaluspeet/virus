@@ -6,7 +6,7 @@
 #include "types.h"
 
 #define VIRUS_NUM 50
-#define VIRUS_SIZE 10000
+#define VIRUS_SIZE 1000
 #define VIRUS_TRIES 1000
 
 void run_virus(int map[MAP_X][MAP_Y]);

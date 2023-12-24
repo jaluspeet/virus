@@ -4,8 +4,8 @@
 #include "settings.h"
 #include "types.h"
 
-#define WALKER_NUM 200
-#define WALKER_SIZE 1000
+#define WALKER_NUM 50
+#define WALKER_SIZE 10000
 #define WALKER_TRIES 100
 
 void run_walker(int map[MAP_X][MAP_Y]);
