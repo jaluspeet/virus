@@ -5,6 +5,7 @@
 #include "../include/walker.h"
 
 #include <stdio.h>
+#include <stdlib.h>
 int SEED;
 
 int main(void) {
@@ -32,7 +33,10 @@ int main(void) {
   printf("Welcome to the virus:\n\n");
 
   // elenca i moduli disponibili
-  for (int i = 0; i < modules_size; i++) {
+  // NOTE: modules_size non considera il fatto che sia indicizzato a 0, è il
+  // numero di moduli disponibili. per questo il + 1. in questo modo 0 può
+  // essere utilizzato per uscire dal programma
+  for (int i = 0; i <= modules_size; i++) {
     printf("[%d] %s\n", i, modules[i].name);
   }
   printf("\n");
@@ -44,16 +48,21 @@ int main(void) {
     printf("(virus) ");
     scanf("%ud", &choice);
 
-    if (choice <= modules_size) {
-      printf("\nRunning %s\n\n", modules[choice].name);
-      modules[choice].function(map);
+    if (choice == 0)
+      return EXIT_SUCCESS;
+    else if (choice > modules_size)
+      fprintf(stderr, "\nModule does not exist\n\n");
+    else {
+
+      printf("\nRunning %s\n\n", modules[choice - 1].name);
+      modules[choice - 1].function(map);
 
       // macro che stampa la mappa in ascii o su un png a seconda di cosa è
       // stato selezionato in settings.h
       DRAW_MAP;
-    } else
-      fprintf(stderr, "\nModule does not exist\n\n");
+    }
   }
 
-  return EXIT_SUCCESS;
+  // se il programma arriva qui significa che qualcosa è andato storto
+  return EXIT_FAILURE;
 }
