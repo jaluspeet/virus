@@ -1,11 +1,6 @@
-#include "../include/walker.h"
+#include "modules/walker.h"
 
 #include <stdlib.h>
-
-void run_walker(int map[MAP_X][MAP_Y]) {
-  for (int i = 0; i < WALKER_NUM; i++)
-    walker(map, i);
-}
 
 void walker(int map[MAP_X][MAP_Y], int flag) {
   coord position = {rand() % MAP_X, rand() % MAP_Y};
@@ -52,4 +47,9 @@ void walker(int map[MAP_X][MAP_Y], int flag) {
       break;
     }
   }
+}
+
+void run_walker(int map[MAP_X][MAP_Y]) {
+  for (int i = 0; i < WALKER_NUM; i++)
+    walker(map, i);
 }

@@ -9,6 +9,5 @@
 #define WALKER_TRIES 100
 
 void run_walker(int map[MAP_X][MAP_Y]);
-void walker(int map[MAP_X][MAP_Y], int flag);
 
 #endif // WALKER_H

@@ -1,19 +1,6 @@
-#include "../include/country.h"
-#include "utils.h"
+#include "modules/country.h"
 
 #include <stdlib.h>
-
-void run_country(int map[MAP_X][MAP_Y]) {
-  for (int i = 0; i < COUNTRY_NUM; i++) {
-    coord size = {2 + rand() % COUNTRY_SIZE, 2 + rand() % COUNTRY_SIZE};
-    coord free_spot = find_free_spot(map, size);
-
-    if (free_spot.x < 0 || free_spot.y < 0)
-      i--;
-    else
-      country(map, free_spot, size, i);
-  }
-}
 
 void country(int map[MAP_X][MAP_Y], coord start, coord offset, int flag) {
   for (int i = start.x; i < start.x + offset.x; i++)
@@ -42,4 +29,16 @@ coord find_free_spot(int map[MAP_X][MAP_Y], coord size) {
   }
 
   return not_found;
+}
+
+void run_country(int map[MAP_X][MAP_Y]) {
+  for (int i = 0; i < COUNTRY_NUM; i++) {
+    coord size = {2 + rand() % COUNTRY_SIZE, 2 + rand() % COUNTRY_SIZE};
+    coord free_spot = find_free_spot(map, size);
+
+    if (free_spot.x < 0 || free_spot.y < 0)
+      i--;
+    else
+      country(map, free_spot, size, i);
+  }
 }

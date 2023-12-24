@@ -1,19 +1,25 @@
-#include "../include/country.h"
-#include "../include/draw.h"
-#include "../include/utils.h"
-#include "../include/virus.h"
-#include "../include/walker.h"
+// global stuff
+#include "settings.h"
+#include "types.h"
 
+// stuff used here
+#include "stuff/draw.h"
+#include "stuff/utils.h"
+
+// modules
+#include "modules/country.h"
+#include "modules/virus.h"
+#include "modules/walker.h"
+
+// std library
 #include <stdio.h>
 #include <stdlib.h>
-int SEED;
+#include <time.h>
 
 int main(void) {
 
-  // SEED è una costante che viene riutilizzata in giro. ad esempio, il nome del
-  // file generato sarà mapSEED.png
-  SEED = time(NULL);
-  srand(SEED);
+  // seed rand()
+  srand(time(NULL));
 
   // inizializzazione della mappa (una matrice inizializzata a 0)
   int map[MAP_X][MAP_Y];
@@ -51,15 +57,13 @@ int main(void) {
     if (choice == 0)
       return EXIT_SUCCESS;
     else if (choice > modules_size)
-      fprintf(stderr, "\nModule does not exist\n\n");
+      fprintf(stderr, "\nERROR: Module does not exist\n\n");
     else {
 
       printf("\nRunning %s\n\n", modules[choice - 1].name);
       modules[choice - 1].function(map);
 
-      // macro che stampa la mappa in ascii o su un png a seconda di cosa è
-      // stato selezionato in settings.h
-      DRAW_MAP;
+      draw_map_png(map);
     }
   }
 

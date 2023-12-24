@@ -1,28 +1,6 @@
-#include "../include/virus.h"
+#include "modules/virus.h"
 
 #include <stdlib.h>
-
-void run_virus(int map[MAP_X][MAP_Y]) {
-  for (int i = 0; i < VIRUS_NUM; i++) {
-    int tries = 0;
-    coord start;
-
-    do {
-      start.x = rand() % MAP_X;
-      start.y = rand() % MAP_Y;
-
-      if (tries++ > VIRUS_TRIES)
-        return;
-
-    } while (map[start.x][start.y] != 0);
-
-    int area = VIRUS_SIZE + rand() % VIRUS_SIZE;
-    node *tail = NULL;
-
-    push_lifo(&tail, start);
-    virus(map, &tail, area, i + 1);
-  }
-}
 
 void virus(int map[MAP_X][MAP_Y], node **tail, int area, int flag) {
 
@@ -54,4 +32,26 @@ void virus(int map[MAP_X][MAP_Y], node **tail, int area, int flag) {
   }
 
   virus(map, tail, area - 1, flag);
+}
+
+void run_virus(int map[MAP_X][MAP_Y]) {
+  for (int i = 0; i < VIRUS_NUM; i++) {
+    int tries = 0;
+    coord start;
+
+    do {
+      start.x = rand() % MAP_X;
+      start.y = rand() % MAP_Y;
+
+      if (tries++ > VIRUS_TRIES)
+        return;
+
+    } while (map[start.x][start.y] != 0);
+
+    int area = VIRUS_SIZE + rand() % VIRUS_SIZE;
+    node *tail = NULL;
+
+    push_lifo(&tail, start);
+    virus(map, &tail, area, i + 1);
+  }
 }

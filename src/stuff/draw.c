@@ -1,12 +1,7 @@
-#include "../include/draw.h"
-
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
-#include <time.h>
+#include "stuff/draw.h"
 
 #define STB_IMAGE_WRITE_IMPLEMENTATION
-#include "../include/stb_image_write.h"
+#include "external/stb_image_write.h"
 
 void draw_map_ascii(int map[MAP_X][MAP_Y]) {
 
@@ -28,9 +23,6 @@ void draw_map_png(int map[MAP_X][MAP_Y]) {
 
   int channels = 3; // RGB
 
-  char filename[64];
-  sprintf(filename, "out/map%d.png", SEED);
-
   unsigned char *data = malloc(MAP_X * MAP_Y * channels);
 
   int index = 0;
@@ -45,7 +37,7 @@ void draw_map_png(int map[MAP_X][MAP_Y]) {
     }
   }
 
-  stbi_write_png(filename, MAP_X, MAP_Y, channels, data, MAP_X * channels);
+  stbi_write_png("map.png", MAP_X, MAP_Y, channels, data, MAP_X * channels);
 
   free(data);
 }
