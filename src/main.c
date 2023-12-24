@@ -9,30 +9,50 @@ int SEED;
 
 int main(void) {
 
-  srand(time(NULL));
+  // SEED è una costante che viene riutilizzata in giro. ad esempio, il nome del
+  // file generato sarà mapSEED.png
+  SEED = time(NULL);
+  srand(SEED);
 
-  SEED = rand();
+  // inizializzazione della mappa (una matrice inizializzata a 0)
   int map[MAP_X][MAP_Y];
-
   init_map(map);
 
-  // TODO: registrare automaticamente tutti i moduli disponibili
-  register_module(run_country);
-  register_module(run_virus);
-  register_module(run_walker);
+  // vengono "registrati" i vari moduli, ossia aggiunti a un array di struct
+  // module (puntatore a funzione, nome del modulo) in modo da poter essere
+  // chiamati senza dover ricorrere ad uno switch
 
-  printf("Welcome to the virus (modules: 0 - %d):\n\n", modules_size);
+  // TODO: registrare automaticamente tutti i moduli disponibili, dopo non sarà
+  // più necessario includere tutti gli header dei moduli nel main
+  register_module(run_country, "country");
+  register_module(run_virus, "virus");
+  register_module(run_walker, "walker");
+
+  // Buongiorno!
+  printf("Welcome to the virus:\n\n");
+
+  // elenca i moduli disponibili
+  for (int i = 0; i < modules_size; i++) {
+    printf("[%d] %s\n", i, modules[i].name);
+  }
+  printf("\n");
 
   while (1) {
+
+    // l'utente seleziona un modulo e lo lancia
     unsigned int choice;
     printf("(virus) ");
     scanf("%ud", &choice);
 
     if (choice <= modules_size) {
-      modules[choice](map);
+      printf("\nRunning %s\n\n", modules[choice].name);
+      modules[choice].function(map);
+
+      // macro che stampa la mappa in ascii o su un png a seconda di cosa è
+      // stato selezionato in settings.h
       DRAW_MAP;
     } else
-      fprintf(stderr, "\n\nModule does not exist\n\n");
+      fprintf(stderr, "\nModule does not exist\n\n");
   }
 
   return EXIT_SUCCESS;

@@ -1,5 +1,7 @@
 #include "../include/utils.h"
+#include "types.h"
 #include <stdlib.h>
+#include <string.h>
 
 void init_map(int map[MAP_X][MAP_Y]) {
 
@@ -8,18 +10,12 @@ void init_map(int map[MAP_X][MAP_Y]) {
       map[i][j] = 0;
 }
 
-void register_module(module new_module) {
+void register_module(void (*function)(int map[MAP_X][MAP_Y]), char name[10]) {
+  module new;
+  new.function = function;
+  strcpy(new.name, name);
 
-  if (!modules) {
-    modules = (module *)malloc(sizeof(module));
-    modules[0] = new_module;
-    return;
-  }
-
-  modules = (module *)realloc(modules, sizeof(module) * modules_size + 1);
-
-  if (modules) {
-    modules_size++;
-    modules[modules_size] = new_module;
-  }
+  modules_size++;
+  modules = (module *)realloc(modules, sizeof(module) * modules_size);
+  modules[modules_size - 1] = new;
 }

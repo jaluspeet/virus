@@ -8,6 +8,9 @@ typedef struct coord {
   int y;
 } coord;
 
-typedef void (*module)(int map[MAP_X][MAP_Y]);
+typedef struct module {
+  void (*function)(int map[MAP_X][MAP_Y]);
+  char name[10];
+} module;
 
 #endif // TYPES_H
