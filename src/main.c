@@ -36,8 +36,8 @@ int main(void) {
   // NOTE: modules_size non considera il fatto che sia indicizzato a 0, è il
   // numero di moduli disponibili. per questo il + 1. in questo modo 0 può
   // essere utilizzato per uscire dal programma
-  for (int i = 0; i <= modules_size; i++) {
-    printf("[%d] %s\n", i, modules[i].name);
+  for (int i = 0; i < modules_size; i++) {
+    printf("[%d] %s\n", i + 1, modules[i].name);
   }
   printf("\n");
 
