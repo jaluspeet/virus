@@ -13,3 +13,10 @@ look into `include/modules` and `src/modules`: suppose you want to create a modu
 - `src/banana.c` where you implement such function, and any other function you need for it to work. do not print stuff!
 
 in general a module is a function that moves around the matrix and substitutes the numbers for a `flag` that is given by the `run_*` function. it should be pretty straightforward if you look at the examples.
+
+# I am using neovim and clangd does not pick up the includes
+Create a file called .clangd with
+```yaml
+CompileFlags:
+  Add: -I/absolute/path/to/the/project/include
+```
