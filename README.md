@@ -6,4 +6,5 @@ to build:
 to run:
 - make run
 
+or use vscode and just press F5 i think
 images end up in the out directory. enjoy!
