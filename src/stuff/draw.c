@@ -37,7 +37,7 @@ void draw_map_png(int map[MAP_X][MAP_Y]) {
     }
   }
 
-  stbi_write_png("map.png", MAP_X, MAP_Y, channels, data, MAP_X * channels);
+  stbi_write_png("out/map.png", MAP_X, MAP_Y, channels, data, MAP_X * channels);
 
   free(data);
 }

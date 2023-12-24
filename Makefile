@@ -1,8 +1,9 @@
-CC = clang
-CFLAGS = -Iinclude -Wall
 DEPS_DIR = include
 SRC_DIR = src
 BUILD_DIR = build
+OUT_DIR = out
+CC = clang
+CFLAGS = -I$(DEPS_DIR) -Wall
 
 DEPS = $(wildcard $(DEPS_DIR)/*.h) $(wildcard $(DEPS_DIR)/*/*.h)
 SRC = $(wildcard $(SRC_DIR)/*.c) $(wildcard $(SRC_DIR)/*/*.c)
@@ -20,7 +21,8 @@ $(EXECUTABLE): $(OBJ)
 
 .PHONY: clean
 clean:
-	rm -rf $(BUILD_DIR)
+	rm -rf $(BUILD_DIR) $(OUT_DIR)
 
 run: $(EXECUTABLE)
+	@mkdir -p $(OUT_DIR)
 	./$<
