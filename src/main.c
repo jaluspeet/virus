@@ -1,4 +1,5 @@
 #include "../include/country.h"
+#include "../include/draw.h"
 #include "../include/utils.h"
 #include "../include/virus.h"
 #include "../include/walker.h"
