@@ -1,4 +1,5 @@
 #include "../include/country.h"
+#include "utils.h"
 
 #include <stdlib.h>
 

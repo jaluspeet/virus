@@ -29,7 +29,7 @@ void draw_map_png(int map[MAP_X][MAP_Y]) {
   int channels = 3; // RGB
 
   char filename[64];
-  sprintf(filename, "out/map%ld.png", time(NULL));
+  sprintf(filename, "out/map%d.png", SEED);
 
   unsigned char *data = malloc(MAP_X * MAP_Y * channels);
 
