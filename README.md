@@ -2,7 +2,7 @@
 - to build: `make`
 - to run: `make run`
 
-on vscode you just have to press `F5`
+on vscode you just have to install [codelldb](https://marketplace.visualstudio.com/items?itemName=vadimcn.vscode-lldb) (and [clangd](https://marketplace.visualstudio.com/items?itemName=llvm-vs-code-extensions.vscode-clangd) if you want completions) and press `F5`
 
 # where are the images?
 images end up in the `out` directory.
