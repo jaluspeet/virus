@@ -66,6 +66,7 @@ int main(void) {
       modules[choice - 1].function(map);
 
       draw_map_png(map);
+      system(VISUALIZE);
     }
   }
 
