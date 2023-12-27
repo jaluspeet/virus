@@ -38,7 +38,7 @@ int main(void) {
   register_module(run_walker, "walker");
 
   // Buongiorno!
-  printf("Welcome to the bfs:\n\n");
+  printf("Welcome to the virus:\n\n");
 
   // elenca i moduli disponibili
   // NOTE: modules_size non considera il fatto che sia indicizzato a 0, è il
