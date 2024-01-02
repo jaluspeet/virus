@@ -3,4 +3,3 @@ out/
 .DS_STORE
 *.o
 *.png
-.clangd
