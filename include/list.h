@@ -1,6 +1,21 @@
-#include "stuff/list.h"
+#ifndef LIST_H
+#define LIST_H
 
+#include "types.h"
 #include <stdlib.h>
+
+typedef struct node {
+  coord position;
+  struct node *next;
+} node;
+
+// lifo
+void push_lifo(node **head, coord position);
+coord pop_lifo(node **head);
+
+// fifo
+void push_fifo(node **head, coord position);
+coord pop_fifo(node **head);
 
 void push_lifo(node **head, coord position) {
   node *new = (node *)malloc(sizeof(node));
@@ -68,3 +83,5 @@ coord pop_fifo(node **head) {
 
   return ret;
 }
+
+#endif // LIST_H

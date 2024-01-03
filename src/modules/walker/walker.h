@@ -2,7 +2,6 @@
 #define WALKER_H
 
 #include "settings.h"
-#include "types.h"
 
 #define WALKER_NUM 50
 #define WALKER_SIZE 10000

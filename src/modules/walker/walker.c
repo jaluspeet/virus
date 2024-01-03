@@ -1,4 +1,5 @@
-#include "modules/walker.h"
+#include "walker.h"
+#include "types.h"
 
 #include <stdlib.h>
 

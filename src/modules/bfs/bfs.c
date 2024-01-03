@@ -1,4 +1,8 @@
-#include "modules/bfs.h"
+#include "bfs.h"
+
+#include "list.h"
+#include "settings.h"
+#include "types.h"
 
 #include <stdlib.h>
 

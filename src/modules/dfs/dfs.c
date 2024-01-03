@@ -1,4 +1,8 @@
-#include "modules/dfs.h"
+#include "dfs.h"
+
+#include "list.h"
+#include "settings.h"
+#include "types.h"
 
 #include <stdlib.h>
 

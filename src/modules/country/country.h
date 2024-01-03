@@ -2,7 +2,6 @@
 #define COUNTRY_H
 
 #include "settings.h"
-#include "types.h"
 
 #define COUNTRY_SIZE 200
 #define COUNTRY_NUM 20

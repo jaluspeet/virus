@@ -1,4 +1,7 @@
-#include "modules/country.h"
+#include "country.h"
+
+#include "settings.h"
+#include "types.h"
 
 #include <stdlib.h>
 

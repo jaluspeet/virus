@@ -2,8 +2,6 @@
 #define DFS_H
 
 #include "settings.h"
-#include "stuff/list.h"
-#include "types.h"
 
 #define DFS_NUM 50
 #define DFS_SIZE 1000

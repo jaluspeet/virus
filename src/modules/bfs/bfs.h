@@ -2,8 +2,6 @@
 #define BFS_H
 
 #include "settings.h"
-#include "stuff/list.h"
-#include "types.h"
 
 #define BFS_NUM 50
 #define BFS_SIZE 1000
